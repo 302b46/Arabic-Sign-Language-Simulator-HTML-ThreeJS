@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Hand</title>
+    <style media="screen">
+      body{margin:0;}
+      canvas {width: 100%; height: 100%; };
+
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js" integrity="sha512-Q+IG0h7As6sfqE2t1Xf5IeamNyCXb4EXxGCA9Mlbpv7xtwurVHNdVDbyWeSQ3ulPf2FRlqeu77Ec3SJDdIR63w==" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.js" integrity="sha512-8Yom5spEjD3HeZTNoDiOm4Y4Rn3RVKUFpiqTM4I3RIIO0u8e2m7XjT5rG1GQNHJlVcD9EZrzn+itENl4C6112A==" crossorigin="anonymous"></script>
+<script src="js/OrbitControls.js">
+
+</script>
+<script>
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+  var renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+  window.addEventListener('resize', function()
+{
+  var width=window.innerWidth;
+  var height=window.innerHeight;
+  renderer.setSize(width,height);
+  camera.aspect=width/height;
+  camera.updateProjectionMatrix();
+});
+controls= new THREE.OrbitControls(camera, renderer.domElement);
+
+//creating the palm
+var geometry = new THREE.BoxGeometry(1.78,1.5,0.5);
+
+//colors bel tarteeb for 6 faces
+var cubeMaterials=
+[
+  new THREE.MeshBasicMaterial({color:0xFFFFFF}),
+  new THREE.MeshBasicMaterial({color:0x1BC5E2}),
+  new THREE.MeshBasicMaterial({color:0x5B8F98}),
+  new THREE.MeshBasicMaterial({color:0x0C5A67}),
+  new THREE.MeshBasicMaterial({color:0x10B4CF}),
+  new THREE.MeshBasicMaterial({color:0x042A30}),
+  //new THREE.MeshBasicMaterial({color:0x10B4CF}),
+  //new THREE.MeshBasicMaterial({color:0x042A30}),
+  //new THREE.MeshBasicMaterial({color:0x10B4CF}),
+  //new THREE.MeshBasicMaterial({color:0x042A30}),
+
+];
+
+//create material color, image or texture
+var material = new THREE.MeshFaceMaterial(cubeMaterials);
+var palm = new THREE.Mesh(geometry, material);
+scene.add(palm);
+camera.position.z=4;
+
+
+
+
+//--------------- Drawing the index finger ---------------//
+
+//first cube (ment taht)
+
+var geometry2 = new THREE.BoxGeometry(0.3,0.4,0.3);
+var index1 = new THREE.Mesh(geometry2, material);
+index1.position.y=0.9
+
+//middle cube
+
+var geometry3 = new THREE.BoxGeometry(0.3,0.4,0.3);
+var index2 = new THREE.Mesh(geometry3, material);
+
+index2.position.y=1.32
+
+//last cube
+
+var geometry4 = new THREE.BoxGeometry(0.3,0.3,0.3);
+var index3 = new THREE.Mesh(geometry4, material);
+
+index3.position.y=1.7
+
+//grouping the cubes to form 1 finger
+
+index=new THREE.Group();
+index.add(index1);
+index.add(index2);
+index.add(index3);
+index.position.x=-0.73
+scene.add(index);
+
+//--------------- Drawing the middle  finger ---------------//
+
+
+//first cube (men taht)
+
+var geometry5 = new THREE.BoxGeometry(0.3,0.4,0.3);
+var middle1 = new THREE.Mesh(geometry5, material);
+
+middle1.position.y=0.9
+
+//middle cube
+
+var geometry6 = new THREE.BoxGeometry(0.3,0.4,0.3);
+var middle2 = new THREE.Mesh(geometry6, material);
+
+middle2.position.y=1.32
+
+//last cube
+
+var geometry7 = new THREE.BoxGeometry(0.3,0.5,0.3);
+var middle3 = new THREE.Mesh(geometry7, material);
+
+middle3.position.y=1.8
+
+//grouping to form 1 finger
+
+middle=new THREE.Group();
+middle.add(middle1);
+middle.add(middle2);
+middle.add(middle3);
+middle.position.x=-0.25
+scene.add(middle);
+
+//--------------- Drawing the ring finger ---------------//
+
+//first cube (men taht)
+
+var geometry8 = new THREE.BoxGeometry(0.3,0.4,0.3);
+var ring1 = new THREE.Mesh(geometry8, material);
+
+ring1.position.y=0.9
+
+var geometry9 = new THREE.BoxGeometry(0.3,0.4,0.3);
+var ring2 = new THREE.Mesh(geometry9, material);
+
+ring2.position.y=1.32
+
+var geometry10 = new THREE.BoxGeometry(0.3,0.3,0.3);
+var ring3 = new THREE.Mesh(geometry10, material);
+
+ring3.position.y=1.7
+
+ring=new THREE.Group();
+ring.add(ring1);
+ring.add(ring2);
+ring.add(ring3);
+ring.position.x=0.2;
+scene.add(ring);
+
+//--------------- Drawing the pinky finger ---------------//
+
+//first cube (men taht)
+
+var geometry11 = new THREE.BoxGeometry(0.3,0.3,0.3);
+var pinky1 = new THREE.Mesh(geometry11, material);
+pinky1.position.y=0.9
+
+
+//middle cube
+
+var geometry12 = new THREE.BoxGeometry(0.3,0.3,0.3);
+var pinky2 = new THREE.Mesh(geometry12, material);
+
+pinky2.position.y=1.22
+
+
+//last cube
+
+var geometry13 = new THREE.BoxGeometry(0.3,0.2,0.3);
+var pinky3 = new THREE.Mesh(geometry13, material);
+
+pinky3.position.y=1.5
+
+
+pinky=new THREE.Group();
+pinky.add(pinky1);
+pinky.add(pinky2);
+pinky.add(pinky3);
+pinky.position.x=0.7
+scene.add(pinky);
+
+//--------------- Drawing the thumb finger ---------------//
+
+//first cube (men taht)
+
+var geometry14 = new THREE.BoxGeometry(0.3,0.3,0.3);
+var thumb1 = new THREE.Mesh(geometry14, material);
+thumb1.position.x=-0.9
+thumb1.position.y=0.2
+thumb1.rotation.z+=0.8
+scene.add(thumb1)
+
+//middle cube
+
+
+var geometry15 = new THREE.BoxGeometry(0.3,0.5,0.3);
+var thumb2 = new THREE.Mesh(geometry15, material);
+thumb2.position.x=-1.2
+thumb2.position.y=0.5
+thumb2.rotation.z+=0.8
+
+//last cube
+
+var geometry16 = new THREE.BoxGeometry(0.3,0.3,0.3);
+var thumb3 = new THREE.Mesh(geometry16, material);
+thumb3.position.x=-1.5
+thumb3.position.y=0.8
+thumb3.rotation.z+=0.8
+
+thumb=new THREE.Group();
+
+thumb.add(thumb2);
+thumb.add(thumb3);
+
+
+scene.add(thumb);
+
+//game logic
+  var update = function ()
+  {
+//cube.rotation.x+=0.01;
+//cube.rotation.y+=0.01;
+  };
+//draw scene
+
+//ignore this lessa bagarab fl rotation  (smo7s)
+    //index1.rotation.x += 0.5;
+   // index1.rotation.y += 0.5;
+    //index1.rotation.z += 0.5;
+
+  var render=function()
+  {
+    renderer.render(scene, camera);
+  };
+
+  var GameLoop = function()
+  {
+    requestAnimationFrame(GameLoop);
+    update();
+    render();
+  };
+  GameLoop();
+</script>
+  </body>
+</html>
