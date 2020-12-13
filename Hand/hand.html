@@ -51,7 +51,7 @@ new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('img/wave.jpg'
   new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('img/wave.jpg') , side: THREE.DoubleSide }),  //back side
 ];
 
-var fingerMaterialTipMaterial=[
+var fingerTipMaterial=[
   new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('img/wave.jpg') , side: THREE.DoubleSide }),  //right side
   new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('img/wave.jpg') , side: THREE.DoubleSide }),  //left side
   new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('img/wave.jpg') , side: THREE.DoubleSide }),  //top side
@@ -96,7 +96,7 @@ index2.position.y=1.32
 //last cube
 
 var geometry4 = new THREE.BoxGeometry(0.3,0.3,0.3);
-var index3 = new THREE.Mesh(geometry4, fingerMaterialTipMaterial);
+var index3 = new THREE.Mesh(geometry4, fingerTipMaterial);
 
 index3.position.y=1.7
 
@@ -129,7 +129,7 @@ middle2.position.y=1.32
 //last cube
 
 var geometry7 = new THREE.BoxGeometry(0.3,0.5,0.3);
-var middle3 = new THREE.Mesh(geometry7, fingerMaterialTipMaterial);
+var middle3 = new THREE.Mesh(geometry7, fingerTipMaterial);
 
 middle3.position.y=1.8
 
@@ -157,7 +157,7 @@ var ring2 = new THREE.Mesh(geometry9, fingerMaterial);
 ring2.position.y=1.32
 
 var geometry10 = new THREE.BoxGeometry(0.3,0.3,0.3);
-var ring3 = new THREE.Mesh(geometry10, fingerMaterialTipMaterial);
+var ring3 = new THREE.Mesh(geometry10, fingerTipMaterial);
 
 ring3.position.y=1.7
 
@@ -188,7 +188,7 @@ pinky2.position.y=1.22
 //last cube
 
 var geometry13 = new THREE.BoxGeometry(0.3,0.2,0.3);
-var pinky3 = new THREE.Mesh(geometry13, fingerMaterialTipMaterial);
+var pinky3 = new THREE.Mesh(geometry13, fingerTipMaterial);
 
 pinky3.position.y=1.5
 
@@ -223,7 +223,7 @@ thumb2.rotation.z+=0.8
 //last cube
 
 var geometry16 = new THREE.BoxGeometry(0.3,0.3,0.3);
-var thumb3 = new THREE.Mesh(geometry16, fingerMaterialTipMaterial);
+var thumb3 = new THREE.Mesh(geometry16, fingerTipMaterial);
 thumb3.position.x=-1.5
 thumb3.position.y=0.8
 thumb3.rotation.z+=0.8
